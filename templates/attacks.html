@@ -1,0 +1,1017 @@
+{% extends "layout.html" %}
+
+{% block title %}Attack Methods - Network Security Testing Framework{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/attacks.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="bi bi-lightning-charge"></i> Attack Methods</h5>
+                <div>
+                    <button id="stop-all-attacks" class="btn btn-sm btn-danger">Stop All Attacks</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-warning mb-4">
+                    <strong>Ethical Usage Warning:</strong> Ensure you have proper authorization before testing any target. 
+                    These methods are provided for authorized security testing only.
+                </div>
+
+                <ul class="nav nav-tabs mb-4" id="attackTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="layer7-tab" data-bs-toggle="tab" data-bs-target="#layer7" 
+                                type="button" role="tab" aria-selected="true">Layer 7 Methods</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="layer4-tab" data-bs-toggle="tab" data-bs-target="#layer4" 
+                                type="button" role="tab" aria-selected="false">Layer 4 Methods</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="attackTabsContent">
+                    <!-- Layer 7 Methods -->
+                    <div class="tab-pane fade show active" id="layer7" role="tabpanel" aria-labelledby="layer7-tab">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="attack-grid">
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">GET Flood</h5>
+                                                    <p class="card-text">Simple GET request flood attack</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="GET" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">POST Flood</h5>
+                                                    <p class="card-text">HTTP POST request flood attack</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="POST" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">OVH Bypass</h5>
+                                                    <p class="card-text">Bypass OVH protection</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="OVH" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Random HEX</h5>
+                                                    <p class="card-text">RHEX attack method</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="RHEX" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">STOMP</h5>
+                                                    <p class="card-text">Bypass captcha verification</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="STOMP" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">STRESS</h5>
+                                                    <p class="card-text">High byte HTTP packet flood</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="STRESS" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">DYN</h5>
+                                                    <p class="card-text">Random subdomain method</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="DYN" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">DOWNLOADER</h5>
+                                                    <p class="card-text">Slow data reading method</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="DOWNLOADER" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Slowloris</h5>
+                                                    <p class="card-text">Classic slow HTTP attack</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="SLOW" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">HEAD</h5>
+                                                    <p class="card-text">HTTP HEAD request flood</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="HEAD" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">NULL</h5>
+                                                    <p class="card-text">Null UserAgent method</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="NULL" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">COOKIE</h5>
+                                                    <p class="card-text">Random cookie flood</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="COOKIE" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">PPS</h5>
+                                                    <p class="card-text">Minimal GET request flood</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="PPS" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">EVEN</h5>
+                                                    <p class="card-text">GET with extended headers</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="EVEN" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">GSB</h5>
+                                                    <p class="card-text">Google Shield Bypass</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="GSB" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">DGB</h5>
+                                                    <p class="card-text">DDoS Guard Bypass</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="DGB" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">AVB</h5>
+                                                    <p class="card-text">Arvan Cloud Bypass</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="AVB" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">BOT</h5>
+                                                    <p class="card-text">Google bot emulation</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="BOT" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">APACHE</h5>
+                                                    <p class="card-text">Apache web server exploit</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="APACHE" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">XMLRPC</h5>
+                                                    <p class="card-text">WordPress XMLRPC exploit</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="XMLRPC" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">CFB</h5>
+                                                    <p class="card-text">CloudFlare Bypass</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="CFB" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">CFBUAM</h5>
+                                                    <p class="card-text">CloudFlare Under Attack Mode Bypass</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="CFBUAM" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">BYPASS</h5>
+                                                    <p class="card-text">Normal AntiDDoS Bypass</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="BYPASS" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">BOMB</h5>
+                                                    <p class="card-text">Bypass with bombardier</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="BOMB" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">KILLER</h5>
+                                                    <p class="card-text">Multi-thread attack</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="KILLER" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">TOR</h5>
+                                                    <p class="card-text">Onion website bypass</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="TOR" data-layer="7">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-dark">
+                                    <div class="card-header">Attack Configuration</div>
+                                    <div class="card-body">
+                                        <form id="layer7-attack-form">
+                                            <div class="mb-3">
+                                                <label for="layer7-target" class="form-label">Target URL</label>
+                                                <input type="text" class="form-control" id="layer7-target" 
+                                                       placeholder="https://example.com" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="layer7-duration" class="form-label">Duration (seconds)</label>
+                                                <input type="number" class="form-control" id="layer7-duration" 
+                                                       value="60" min="10" max="300" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="layer7-threads" class="form-label">Threads</label>
+                                                <input type="number" class="form-control" id="layer7-threads" 
+                                                       value="10" min="1" max="100" required>
+                                            </div>
+                                            <div class="mb-3 form-check">
+                                                <input type="checkbox" class="form-check-input" id="layer7-use-proxies" checked>
+                                                <label class="form-check-label" for="layer7-use-proxies">Use Proxies</label>
+                                            </div>
+                                            <div class="d-grid">
+                                                <button type="submit" id="layer7-attack-submit" class="btn btn-primary">Launch Attack</button>
+                                            </div>
+                                        </form>
+                                        <div class="mt-4">
+                                            <div class="alert alert-info">
+                                                <div id="layer7-selected-method">No method selected</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card bg-dark mt-4">
+                                    <div class="card-header">Running Attacks</div>
+                                    <div class="card-body">
+                                        <ul class="list-group" id="running-attacks-list">
+                                            <li class="list-group-item bg-dark text-white">No active attacks</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Layer 4 Methods -->
+                    <div class="tab-pane fade" id="layer4" role="tabpanel" aria-labelledby="layer4-tab">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="attack-grid">
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">TCP Flood</h5>
+                                                    <p class="card-text">TCP packet flood attack</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="TCP" data-layer="4">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">UDP Flood</h5>
+                                                    <p class="card-text">UDP packet flood attack</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="UDP" data-layer="4">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">SYN Flood</h5>
+                                                    <p class="card-text">TCP SYN packet flood</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="SYN" data-layer="4">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">ICMP Flood</h5>
+                                                    <p class="card-text">ICMP echo request flood</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="ICMP" data-layer="4">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Connection Flood</h5>
+                                                    <p class="card-text">Open/close connections rapidly</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="CPS" data-layer="4">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Connection Maintain</h5>
+                                                    <p class="card-text">Keep connections alive</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="CONNECTION" data-layer="4">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">VSE</h5>
+                                                    <p class="card-text">Valve Source Engine Protocol</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="VSE" data-layer="4">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">TS3</h5>
+                                                    <p class="card-text">TeamSpeak 3 Status Ping</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="TS3" data-layer="4">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">FIVEM</h5>
+                                                    <p class="card-text">FiveM Status Ping Protocol</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="FIVEM" data-layer="4">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">DNS Amplification</h5>
+                                                    <p class="card-text">DNS amplification attack</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="DNS" data-layer="4">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">NTP Amplification</h5>
+                                                    <p class="card-text">NTP amplification attack</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="NTP" data-layer="4">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Memcached</h5>
+                                                    <p class="card-text">Memcached amplification attack</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="MEM" data-layer="4">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">CLDAP</h5>
+                                                    <p class="card-text">CLDAP amplification attack</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="CLDAP" data-layer="4">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">CHARGEN</h5>
+                                                    <p class="card-text">CHARGEN amplification attack</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="CHAR" data-layer="4">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">ARD</h5>
+                                                    <p class="card-text">Apple Remote Desktop amplification</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="ARD" data-layer="4">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">RDP</h5>
+                                                    <p class="card-text">RDP amplification attack</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="RDP" data-layer="4">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Minecraft</h5>
+                                                    <p class="card-text">Minecraft Status Ping</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="MINECRAFT" data-layer="4">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Minecraft PE</h5>
+                                                    <p class="card-text">Minecraft PE Status Ping</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="MCPE" data-layer="4">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card bg-dark h-100">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Minecraft Bot</h5>
+                                                    <p class="card-text">Minecraft Bot Attack</p>
+                                                    <button class="btn btn-primary btn-sm attack-btn" 
+                                                            data-method="MCBOT" data-layer="4">Launch</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-dark">
+                                    <div class="card-header">Attack Configuration</div>
+                                    <div class="card-body">
+                                        <form id="layer4-attack-form">
+                                            <div class="mb-3">
+                                                <label for="layer4-target" class="form-label">Target (IP:Port)</label>
+                                                <input type="text" class="form-control" id="layer4-target" 
+                                                       placeholder="192.168.1.1:80" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="layer4-duration" class="form-label">Duration (seconds)</label>
+                                                <input type="number" class="form-control" id="layer4-duration" 
+                                                       value="60" min="10" max="300" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="layer4-threads" class="form-label">Threads</label>
+                                                <input type="number" class="form-control" id="layer4-threads" 
+                                                       value="10" min="1" max="100" required>
+                                            </div>
+                                            <div class="mb-3 form-check">
+                                                <input type="checkbox" class="form-check-input" id="layer4-use-amp" checked>
+                                                <label class="form-check-label" for="layer4-use-amp">Use Amplification</label>
+                                            </div>
+                                            <div class="d-grid">
+                                                <button type="submit" id="layer4-attack-submit" class="btn btn-primary">Launch Attack</button>
+                                            </div>
+                                        </form>
+                                        <div class="mt-4">
+                                            <div class="alert alert-info">
+                                                <div id="layer4-selected-method">No method selected</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card bg-dark mt-4">
+                                    <div class="card-header">Amplification Stats</div>
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <span class="d-block">Working Amplifiers:</span>
+                                            <span id="amp-working-count" class="text-success fw-bold">0</span>
+                                            <span class="text-muted">/</span>
+                                            <span id="amp-total-count">0</span>
+                                        </div>
+                                        <div class="progress mb-3" style="height: 25px;">
+                                            <div id="amp-progress" class="progress-bar bg-success" role="progressbar" 
+                                                 style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                                        </div>
+                                        <div class="alert alert-info small">
+                                            Amplification attacks use discovered servers to multiply attack traffic. More servers = higher effectiveness.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Variables to store selected attack method
+    let selectedLayer7Method = null;
+    let selectedLayer4Method = null;
+    
+    // Set up event listeners for attack buttons
+    document.querySelectorAll('.attack-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const method = this.getAttribute('data-method');
+            const layer = this.getAttribute('data-layer');
+            
+            // First, remove active class from all buttons in the same layer
+            document.querySelectorAll(`.attack-btn[data-layer="${layer}"]`).forEach(btn => {
+                btn.classList.remove('btn-success');
+                btn.classList.add('btn-primary');
+                btn.textContent = 'Launch';
+            });
+            
+            // Then highlight this button
+            this.classList.remove('btn-primary');
+            this.classList.add('btn-success');
+            this.textContent = 'Selected';
+            
+            if (layer === '7') {
+                selectedLayer7Method = method;
+                document.getElementById('layer7-selected-method').textContent = `Selected: ${method}`;
+                document.getElementById('layer7-selected-method').parentElement.classList.add('attack-info-card');
+                document.getElementById('layer7-attack-submit').removeAttribute('disabled');
+                // Scroll to the form
+                document.getElementById('layer7-attack-form').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                selectedLayer4Method = method;
+                document.getElementById('layer4-selected-method').textContent = `Selected: ${method}`;
+                document.getElementById('layer4-selected-method').parentElement.classList.add('attack-info-card');
+                document.getElementById('layer4-attack-submit').removeAttribute('disabled');
+                // Scroll to the form
+                document.getElementById('layer4-attack-form').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+    
+    // Layer 7 attack form submission
+    document.getElementById('layer7-attack-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        if (!selectedLayer7Method) {
+            alert('Please select an attack method first by clicking one of the attack method cards.');
+            return;
+        }
+        
+        const target = document.getElementById('layer7-target').value.trim();
+        if (!target) {
+            alert('Please enter a target URL.');
+            return;
+        }
+        
+        const duration = document.getElementById('layer7-duration').value;
+        const threads = document.getElementById('layer7-threads').value;
+        const useProxies = document.getElementById('layer7-use-proxies').checked;
+        
+        launchLayer7Attack(selectedLayer7Method, target, duration, threads, useProxies);
+    });
+    
+    // Layer 4 attack form submission
+    document.getElementById('layer4-attack-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        if (!selectedLayer4Method) {
+            alert('Please select an attack method first by clicking one of the attack method cards.');
+            return;
+        }
+        
+        const target = document.getElementById('layer4-target').value.trim();
+        if (!target) {
+            alert('Please enter a target IP:PORT.');
+            return;
+        }
+        
+        // For ICMP method, accept just IP
+        if (selectedLayer4Method !== "ICMP" && !target.includes(":")) {
+            alert('Target should be in format IP:PORT (e.g., 192.168.1.1:80)');
+            return;
+        }
+        
+        const duration = document.getElementById('layer4-duration').value;
+        const threads = document.getElementById('layer4-threads').value;
+        const useAmplification = document.getElementById('layer4-use-amp').checked;
+        
+        launchLayer4Attack(selectedLayer4Method, target, duration, threads, useAmplification);
+    });
+    
+    // Stop all attacks button
+    document.getElementById('stop-all-attacks').addEventListener('click', stopAllAttacks);
+    
+    // Function to launch Layer 7 attack
+    function launchLayer7Attack(method, target, duration, threads, useProxies) {
+        const submitBtn = document.getElementById('layer7-attack-submit');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Launching...';
+        
+        fetch('/api/launch-attack', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                method: method,
+                target: target,
+                duration: duration,
+                threads: threads,
+                layer: 7,
+                use_proxies: useProxies
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Launch Attack';
+            
+            if (data.success) {
+                // Show success message
+                const successAlert = document.createElement('div');
+                successAlert.className = 'alert alert-success alert-dismissible fade show mt-3';
+                successAlert.innerHTML = `
+                    <strong>Success!</strong> Attack launched with ID: ${data.attack_id}.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                `;
+                document.getElementById('layer7-attack-form').appendChild(successAlert);
+                
+                // Update running attacks list
+                updateRunningAttacks();
+                
+                // Remove success message after 5 seconds
+                setTimeout(() => {
+                    successAlert.remove();
+                }, 5000);
+            } else {
+                // Show error message
+                const errorAlert = document.createElement('div');
+                errorAlert.className = 'alert alert-danger alert-dismissible fade show mt-3';
+                errorAlert.innerHTML = `
+                    <strong>Error!</strong> ${data.error}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                `;
+                document.getElementById('layer7-attack-form').appendChild(errorAlert);
+                
+                // Remove error message after 5 seconds
+                setTimeout(() => {
+                    errorAlert.remove();
+                }, 5000);
+            }
+        })
+        .catch(error => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Launch Attack';
+            
+            console.error('Error launching attack:', error);
+            alert(`Error: ${error}`);
+        });
+    }
+    
+    // Function to launch Layer 4 attack
+    function launchLayer4Attack(method, target, duration, threads, useAmplification) {
+        const submitBtn = document.getElementById('layer4-attack-submit');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Launching...';
+        
+        fetch('/api/launch-attack', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                method: method,
+                target: target,
+                duration: duration,
+                threads: threads,
+                layer: 4,
+                use_amplification: useAmplification
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Launch Attack';
+            
+            if (data.success) {
+                // Show success message
+                const successAlert = document.createElement('div');
+                successAlert.className = 'alert alert-success alert-dismissible fade show mt-3';
+                successAlert.innerHTML = `
+                    <strong>Success!</strong> Attack launched with ID: ${data.attack_id}.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                `;
+                document.getElementById('layer4-attack-form').appendChild(successAlert);
+                
+                // Update running attacks list
+                updateRunningAttacks();
+                
+                // Remove success message after 5 seconds
+                setTimeout(() => {
+                    successAlert.remove();
+                }, 5000);
+            } else {
+                // Show error message
+                const errorAlert = document.createElement('div');
+                errorAlert.className = 'alert alert-danger alert-dismissible fade show mt-3';
+                errorAlert.innerHTML = `
+                    <strong>Error!</strong> ${data.error}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                `;
+                document.getElementById('layer4-attack-form').appendChild(errorAlert);
+                
+                // Remove error message after 5 seconds
+                setTimeout(() => {
+                    errorAlert.remove();
+                }, 5000);
+            }
+        })
+        .catch(error => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Launch Attack';
+            
+            console.error('Error launching attack:', error);
+            alert(`Error: ${error}`);
+        });
+    }
+    
+    // Function to stop all attacks
+    function stopAllAttacks() {
+        const btn = document.getElementById('stop-all-attacks');
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Stopping...';
+        
+        fetch('/api/stop-all-attacks', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            btn.disabled = false;
+            btn.textContent = 'Stop All Attacks';
+            
+            if (data.success) {
+                // Show toast notification
+                const toast = document.createElement('div');
+                toast.className = 'position-fixed bottom-0 end-0 p-3';
+                toast.style.zIndex = 5;
+                toast.innerHTML = `
+                    <div class="toast show bg-success text-white" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header bg-success text-white">
+                            <strong class="me-auto">Success</strong>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            All attacks have been stopped.
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(toast);
+                
+                // Update running attacks list
+                updateRunningAttacks();
+                
+                // Remove toast after 3 seconds
+                setTimeout(() => {
+                    toast.remove();
+                }, 3000);
+            } else {
+                alert(`Failed to stop attacks: ${data.error}`);
+            }
+        })
+        .catch(error => {
+            btn.disabled = false;
+            btn.textContent = 'Stop All Attacks';
+            
+            console.error('Error stopping attacks:', error);
+            alert(`Error: ${error}`);
+        });
+    }
+    
+    // Function to update running attacks list
+    function updateRunningAttacks() {
+        fetch('/api/running-attacks')
+        .then(response => response.json())
+        .then(data => {
+            const list = document.getElementById('running-attacks-list');
+            list.innerHTML = '';
+            
+            if (!data.success || !data.attacks || data.attacks.length === 0) {
+                list.innerHTML = '<li class="list-group-item bg-dark text-white">No active attacks</li>';
+                return;
+            }
+            
+            data.attacks.forEach(attack => {
+                const li = document.createElement('li');
+                li.className = 'list-group-item bg-dark text-white d-flex justify-content-between align-items-center';
+                
+                const timeRemaining = Math.max(0, Math.round((attack.start_time + attack.duration) - (Date.now() / 1000)));
+                
+                // Create a progress bar for the remaining time
+                const progressPercentage = Math.round((timeRemaining / attack.duration) * 100);
+                
+                li.innerHTML = `
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between">
+                            <strong>${attack.method}</strong>
+                            <small>ID: ${attack.id}</small>
+                        </div>
+                        <div class="small text-truncate mb-1">${attack.target}</div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="progress w-100 me-2" style="height: 8px;">
+                                <div class="progress-bar bg-info" role="progressbar" style="width: ${progressPercentage}%" 
+                                    aria-valuenow="${progressPercentage}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <span class="small text-muted">${timeRemaining}s</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-danger ms-2 stop-attack-btn" data-id="${attack.id}">Stop</button>
+                `;
+                
+                list.appendChild(li);
+            });
+            
+            // Add event listeners to stop buttons
+            document.querySelectorAll('.stop-attack-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const attackId = this.getAttribute('data-id');
+                    stopAttack(attackId);
+                });
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching running attacks:', error);
+        });
+    }
+    
+    // Function to stop a specific attack
+    function stopAttack(attackId) {
+        fetch('/api/stop-attack', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                attack_id: attackId
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Show toast notification
+                const toast = document.createElement('div');
+                toast.className = 'position-fixed bottom-0 end-0 p-3';
+                toast.style.zIndex = 5;
+                toast.innerHTML = `
+                    <div class="toast show bg-success text-white" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header bg-success text-white">
+                            <strong class="me-auto">Success</strong>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            Attack ${attackId} has been stopped.
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(toast);
+                
+                // Update running attacks list
+                updateRunningAttacks();
+                
+                // Remove toast after 3 seconds
+                setTimeout(() => {
+                    toast.remove();
+                }, 3000);
+            } else {
+                alert(`Failed to stop attack: ${data.error}`);
+            }
+        })
+        .catch(error => {
+            console.error('Error stopping attack:', error);
+            alert(`Error: ${error}`);
+        });
+    }
+    
+    // Update running attacks list every 3 seconds
+    setInterval(updateRunningAttacks, 3000);
+    
+    // Initial update of running attacks
+    updateRunningAttacks();
+    
+    // Disable submit buttons until a method is selected
+    document.getElementById('layer7-attack-submit').setAttribute('disabled', 'disabled');
+    document.getElementById('layer4-attack-submit').setAttribute('disabled', 'disabled');
+});
+</script>
+{% endblock %}

@@ -1,0 +1,129 @@
+{% extends "layout.html" %}
+
+{% block title %}Amplification Servers - Network Security Testing Framework{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="bi bi-arrows-expand"></i> Amplification Server Management</h5>
+                <div>
+                    <button id="refresh-servers" class="btn btn-sm btn-info">Refresh List</button>
+                    <button id="toggle-amp-scan-page" class="btn btn-sm btn-primary">
+                        <span id="amp-scan-btn-text-page">Start Scanning</span>
+                    </button>
+                    <button id="test-servers-page" class="btn btn-sm btn-secondary">Test All</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info mb-3">
+                    <div class="d-flex justify-content-between">
+                        <span>Total Amplification Servers: <strong id="servers-total-count">{{ servers|length }}</strong></span>
+                        <span>Working Servers: <strong id="servers-working-count">{{ servers|selectattr('working', 'eq', true)|list|length }}</strong></span>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-dark" id="servers-table">
+                        <thead>
+                            <tr>
+                                <th>IP Address</th>
+                                <th>Port</th>
+                                <th>Protocol</th>
+                                <th>Amplification Factor</th>
+                                <th>Country</th>
+                                <th>Status</th>
+                                <th>Last Checked</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for server in servers %}
+                            <tr class="{{ 'table-success' if server.working else 'table-danger' }}">
+                                <td>{{ server.ip }}</td>
+                                <td>{{ server.port }}</td>
+                                <td>{{ server.protocol }}</td>
+                                <td>{{ server.amplification_factor|round(2) }}x</td>
+                                <td>{{ server.country }}</td>
+                                <td>
+                                    <span class="badge {{ 'bg-success' if server.working else 'bg-danger' }}">
+                                        {{ 'Working' if server.working else 'Not Working' }}
+                                    </span>
+                                </td>
+                                <td>{{ server.last_checked|default('Never')|int|timestamp_format }}</td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="7" class="text-center">No amplification servers found</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Set up event listeners
+    document.getElementById('refresh-servers').addEventListener('click', refreshServers);
+    document.getElementById('toggle-amp-scan-page').addEventListener('click', toggleAmpScanning);
+    document.getElementById('test-servers-page').addEventListener('click', testServers);
+
+    // Fetch initial status
+    fetch('/api/stats')
+    .then(response => response.json())
+    .then(data => {
+        updateAmpScanningUI(data.amp_scanning);
+    })
+    .catch(error => console.error('Error getting status:', error));
+});
+
+function formatTimestamp(timestamp) {
+    if (!timestamp) return 'Never';
+    const date = new Date(timestamp * 1000);
+    return date.toLocaleString();
+}
+
+function updateAmpScanningUI(isScanning) {
+    const btnText = isScanning ? 'Stop Scanning' : 'Start Scanning';
+    document.getElementById('amp-scan-btn-text-page').textContent = btnText;
+}
+
+function refreshServers() {
+    window.location.reload();
+}
+
+function toggleAmpScanning() {
+    fetch('/api/toggle-amp-scanning', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        updateAmpScanningUI(data.scanning);
+    })
+    .catch(error => console.error('Error toggling amplification scanning:', error));
+}
+
+function testServers() {
+    fetch('/api/test-amplification', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.status);
+    })
+    .catch(error => console.error('Error testing amplification servers:', error));
+}
+</script>
+{% endblock %}

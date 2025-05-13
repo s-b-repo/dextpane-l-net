@@ -1,0 +1,131 @@
+{% extends "layout.html" %}
+
+{% block title %}Proxies - Network Security Testing Framework{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="bi bi-hdd-network"></i> Proxy Management</h5>
+                <div>
+                    <button id="refresh-proxies" class="btn btn-sm btn-info">Refresh List</button>
+                    <button id="toggle-proxy-scan-page" class="btn btn-sm btn-primary">
+                        <span id="proxy-scan-btn-text-page">Start Scanning</span>
+                    </button>
+                    <button id="test-proxies-page" class="btn btn-sm btn-secondary">Test All</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info mb-3">
+                    <div class="d-flex justify-content-between">
+                        <span>Total Proxies: <strong id="proxies-total-count">{{ proxies|length }}</strong></span>
+                        <span>Working Proxies: <strong id="proxies-working-count">{{ proxies|selectattr('working', 'eq', true)|list|length }}</strong></span>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-dark" id="proxies-table">
+                        <thead>
+                            <tr>
+                                <th>IP Address</th>
+                                <th>Port</th>
+                                <th>Type</th>
+                                <th>Country</th>
+                                <th>Status</th>
+                                <th>Response Time</th>
+                                <th>Last Checked</th>
+                                <th>Anonymity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for proxy in proxies %}
+                            <tr class="{{ 'table-success' if proxy.working else 'table-danger' }}">
+                                <td>{{ proxy.ip }}</td>
+                                <td>{{ proxy.port }}</td>
+                                <td>{{ proxy.type }}</td>
+                                <td>{{ proxy.country }}</td>
+                                <td>
+                                    <span class="badge {{ 'bg-success' if proxy.working else 'bg-danger' }}">
+                                        {{ 'Working' if proxy.working else 'Not Working' }}
+                                    </span>
+                                </td>
+                                <td>{{ proxy.response_time|default('N/A') }}</td>
+                                <td>{{ proxy.last_checked|default('Never')|int|timestamp_format }}</td>
+                                <td>{{ proxy.anonymity|default('Unknown') }}</td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="8" class="text-center">No proxies found</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Set up event listeners
+    document.getElementById('refresh-proxies').addEventListener('click', refreshProxies);
+    document.getElementById('toggle-proxy-scan-page').addEventListener('click', toggleProxyScanning);
+    document.getElementById('test-proxies-page').addEventListener('click', testProxies);
+
+    // Fetch initial status
+    fetch('/api/stats')
+    .then(response => response.json())
+    .then(data => {
+        updateProxyScanningUI(data.proxy_scanning);
+    })
+    .catch(error => console.error('Error getting status:', error));
+});
+
+function formatTimestamp(timestamp) {
+    if (!timestamp) return 'Never';
+    const date = new Date(timestamp * 1000);
+    return date.toLocaleString();
+}
+
+function updateProxyScanningUI(isScanning) {
+    const btnText = isScanning ? 'Stop Scanning' : 'Start Scanning';
+    document.getElementById('proxy-scan-btn-text-page').textContent = btnText;
+}
+
+function refreshProxies() {
+    window.location.reload();
+}
+
+function toggleProxyScanning() {
+    fetch('/api/toggle-proxy-scanning', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        updateProxyScanningUI(data.scanning);
+    })
+    .catch(error => console.error('Error toggling proxy scanning:', error));
+}
+
+function testProxies() {
+    fetch('/api/test-proxies', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.status);
+    })
+    .catch(error => console.error('Error testing proxies:', error));
+}
+</script>
+{% endblock %}
