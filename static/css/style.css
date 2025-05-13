@@ -1,0 +1,52 @@
+/* Custom styles for Network Security Testing Framework */
+
+/* Body and general styles */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+/* Dashboard cards */
+.card {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-header {
+    font-weight: 500;
+}
+
+/* Status badges */
+.badge {
+    font-size: 0.85rem;
+    padding: 0.35em 0.65em;
+}
+
+/* Tables */
+.table-responsive {
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+/* Utility classes */
+.text-monospace {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Alert customization */
+.alert {
+    border-left: 4px solid rgba(0, 0, 0, 0.125);
+}
+
+.alert-info {
+    border-left-color: var(--bs-info);
+}

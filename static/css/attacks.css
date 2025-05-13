@@ -1,0 +1,93 @@
+.attack-grid .card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: none;
+    margin-bottom: 15px;
+}
+
+.attack-grid .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Attack method card colorization */
+.method-general {
+    border-left: 4px solid var(--bs-primary);
+}
+
+.method-bypass {
+    border-left: 4px solid var(--bs-success);
+}
+
+.method-advanced {
+    border-left: 4px solid var(--bs-warning);
+}
+
+.method-amplification {
+    border-left: 4px solid var(--bs-danger);
+}
+
+.attack-grid .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.attack-grid .card-text {
+    font-size: 0.85rem;
+    color: #adb5bd;
+}
+
+#running-attacks-list .list-group-item {
+    border-left: 4px solid #dc3545;
+}
+
+/* Layer 7 elements styling */
+.nav-tabs .nav-link {
+    color: #adb5bd;
+    border: none;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--bs-primary);
+    background-color: transparent;
+    border-bottom: 2px solid var(--bs-primary);
+}
+
+.nav-tabs .nav-link:hover:not(.active) {
+    border-bottom: 2px solid #adb5bd;
+}
+
+/* Attack info card styling */
+.attack-info-card {
+    animation: pulse 2s infinite;
+    border-left: 4px solid #ffc107;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 193, 7, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+    }
+}
+
+/* Method cards coloring by category */
+.method-card-general {
+    border-left: 4px solid var(--bs-primary);
+}
+
+.method-card-bypass {
+    border-left: 4px solid var(--bs-success);
+}
+
+.method-card-advanced {
+    border-left: 4px solid var(--bs-warning);
+}
+
+.method-card-amplification {
+    border-left: 4px solid var(--bs-danger);
+}
