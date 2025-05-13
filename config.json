@@ -1,0 +1,76 @@
+{
+  "scanning": {
+    "proxy_scan_threads": 100,
+    "amplification_scan_threads": 100,
+    "proxy_test_timeout": 3,
+    "amplification_test_timeout": 3,
+    "auto_remove_dead_proxies": true,
+    "scan_interval": 10
+  },
+  "attacks": {
+    "max_threads": 100,
+    "default_duration": 60,
+    "ethical_mode": true,
+    "use_proxies": true,
+    "use_amplification": true,
+    "rate_limit": 10
+  },
+  "storage": {
+    "auto_save": true,
+    "auto_save_interval": 60
+  },
+  "ui": {
+    "refresh_rate": 1,
+    "color_scheme": "default"
+  },
+  "proxy_networks": [
+    "194.5.0.0/16",
+    "192.111.0.0/16",
+    "146.59.0.0/16",
+    "51.250.0.0/16",
+    "178.128.0.0/16",
+    "157.245.0.0/16",
+    "138.197.0.0/16",
+    "167.99.0.0/16",
+    "134.209.0.0/16",
+    "104.131.0.0/16",
+    "159.203.0.0/16",
+    "147.182.0.0/16",
+    "165.22.0.0/16",
+    "142.93.0.0/16"
+  ],
+  "amplification_networks": [
+    "8.0.0.0/8",
+    "9.0.0.0/8",
+    "11.0.0.0/8",
+    "28.0.0.0/8",
+    "29.0.0.0/8",
+    "30.0.0.0/8"
+  ],
+  "proxy_ports": [
+    80, 8080, 3128, 8000, 8888, 1080, 3129, 8081, 9080, 
+    8181, 8090, 9090, 5555, 4444, 8118, 53281, 9999, 9001
+  ],
+  "amplification_protocols": {
+    "DNS": 53,
+    "NTP": 123,
+    "CLDAP": 389,
+    "MEMCACHED": 11211,
+    "CHARGEN": 19,
+    "SSDP": 1900,
+    "QUIC": 443,
+    "TFTP": 69,
+    "PORTMAP": 111,
+    "QOTD": 17,
+    "SNMP": 161
+  },
+  "proxy_sources": [
+    "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt",
+    "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/http.txt",
+    "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/socks4.txt",
+    "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/socks5.txt",
+    "https://raw.githubusercontent.com/hookzof/socks5_list/master/proxy.txt",
+    "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/socks4.txt",
+    "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/socks5.txt"
+  ]
+}
