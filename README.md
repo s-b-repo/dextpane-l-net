@@ -1,4 +1,4 @@
-# ActiveProxyAmpScanner
+# dextnet
 
 A next-generation toolkit for high-throughput proxy discovery, Layer 4/Layer 7 amplification scanning, and HTTP-based proxy attack orchestration — all wrapped in an intuitive web dashboard.
 
