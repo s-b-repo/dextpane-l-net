@@ -1,0 +1,422 @@
+[
+  {
+    "ip": "45.155.102.55",
+    "port": 80,
+    "type": "HTTP",
+    "country": "DE",
+    "working": true,
+    "last_checked": 1747156056.288237,
+    "response_time": 303,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "146.59.19.103",
+    "port": 8888,
+    "type": "HTTP",
+    "country": "PL",
+    "working": true,
+    "last_checked": 1747156056.3208368,
+    "response_time": 338,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "138.197.175.169",
+    "port": 80,
+    "type": "HTTP",
+    "country": "CA",
+    "working": true,
+    "last_checked": 1747156056.756725,
+    "response_time": 432,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "165.22.56.244",
+    "port": 80,
+    "type": "HTTP",
+    "country": "SG",
+    "working": true,
+    "last_checked": 1747156056.6374128,
+    "response_time": 324,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "167.99.95.35",
+    "port": 80,
+    "type": "HTTP",
+    "country": "GB",
+    "working": true,
+    "last_checked": 1747156056.30269,
+    "response_time": 256,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "45.32.167.238",
+    "port": 80,
+    "type": "HTTP",
+    "country": "US",
+    "working": true,
+    "last_checked": 1747156056.5004354,
+    "response_time": 131,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "104.131.86.91",
+    "port": 8081,
+    "type": "HTTP",
+    "country": "US",
+    "working": true,
+    "last_checked": 1747156056.4381375,
+    "response_time": 196,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "178.128.172.200",
+    "port": 80,
+    "type": "HTTP",
+    "country": "GB",
+    "working": true,
+    "last_checked": 1747156056.3032181,
+    "response_time": 350,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "45.76.79.140",
+    "port": 80,
+    "type": "HTTP",
+    "country": "US",
+    "working": true,
+    "last_checked": 1747156056.5840442,
+    "response_time": 601,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "146.59.243.128",
+    "port": 80,
+    "type": "HTTP",
+    "country": "FR",
+    "working": true,
+    "last_checked": 1747156057.2141793,
+    "response_time": 1109,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "165.22.62.30",
+    "port": 80,
+    "type": "HTTP",
+    "country": "SG",
+    "working": true,
+    "last_checked": 1747156056.6553562,
+    "response_time": 700,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "51.83.190.248",
+    "port": 19050,
+    "type": "SOCKS5",
+    "country": "PL",
+    "working": false,
+    "last_checked": 1747156061.1435914,
+    "response_time": 7686,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "134.209.29.120",
+    "port": 80,
+    "type": "HTTP",
+    "country": "GB",
+    "working": true,
+    "last_checked": 1747156056.3652425,
+    "response_time": 942,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "111.68.127.170",
+    "port": 4153,
+    "type": "SOCKS4",
+    "country": "ID",
+    "working": false,
+    "last_checked": 1747156060.943836,
+    "response_time": 2741,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "8.215.3.250",
+    "port": 4002,
+    "type": "SOCKS4",
+    "country": "ID",
+    "working": false,
+    "last_checked": 1747156060.952577,
+    "response_time": 5127,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "47.238.134.126",
+    "port": 5060,
+    "type": "SOCKS4",
+    "country": "HK",
+    "working": false,
+    "last_checked": 1747156060.9526014,
+    "response_time": 6708,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "149.28.156.158",
+    "port": 80,
+    "type": "HTTP",
+    "country": "SG",
+    "working": true,
+    "last_checked": 1747156057.5145957,
+    "response_time": 1773,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "184.178.172.25",
+    "port": 15291,
+    "type": "SOCKS4",
+    "country": "US",
+    "working": true,
+    "last_checked": 1747156058.2503476,
+    "response_time": 2296,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "184.181.217.201",
+    "port": 4145,
+    "type": "SOCKS4",
+    "country": "US",
+    "working": true,
+    "last_checked": 1747156058.288738,
+    "response_time": 2323,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "103.102.141.40",
+    "port": 4145,
+    "type": "SOCKS4",
+    "country": "ID",
+    "working": false,
+    "last_checked": 1747156060.9635534,
+    "response_time": 2772,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "192.111.130.2",
+    "port": 4145,
+    "type": "SOCKS4",
+    "country": "US",
+    "working": true,
+    "last_checked": 1747156058.451827,
+    "response_time": 3350,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "45.238.57.1",
+    "port": 3629,
+    "type": "SOCKS4",
+    "country": "EC",
+    "working": false,
+    "last_checked": 1747156060.9640472,
+    "response_time": 3522,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "68.71.254.6",
+    "port": 4145,
+    "type": "SOCKS4",
+    "country": "US",
+    "working": true,
+    "last_checked": 1747156060.3071737,
+    "response_time": 3659,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "104.200.152.30",
+    "port": 4145,
+    "type": "SOCKS4",
+    "country": "US",
+    "working": true,
+    "last_checked": 1747156059.830556,
+    "response_time": 5796,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "184.178.172.18",
+    "port": 15280,
+    "type": "SOCKS4",
+    "country": "US",
+    "working": true,
+    "last_checked": 1747156058.2778866,
+    "response_time": 2284,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "199.116.114.11",
+    "port": 4145,
+    "type": "SOCKS4",
+    "country": "US",
+    "working": true,
+    "last_checked": 1747156058.5394278,
+    "response_time": 4046,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "142.54.229.249",
+    "port": 4145,
+    "type": "SOCKS4",
+    "country": "US",
+    "working": true,
+    "last_checked": 1747156058.827759,
+    "response_time": 4300,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "184.178.172.17",
+    "port": 4145,
+    "type": "SOCKS4",
+    "country": "US",
+    "working": true,
+    "last_checked": 1747156058.3304791,
+    "response_time": 3312,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "98.181.137.80",
+    "port": 4145,
+    "type": "SOCKS4",
+    "country": "US",
+    "working": true,
+    "last_checked": 1747156059.4382899,
+    "response_time": 4574,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "167.99.193.112",
+    "port": 80,
+    "type": "HTTP",
+    "country": "GB",
+    "working": true,
+    "last_checked": 1747156056.34338,
+    "response_time": 375,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "192.111.139.163",
+    "port": 19404,
+    "type": "SOCKS4",
+    "country": "US",
+    "working": true,
+    "last_checked": 1747156058.375365,
+    "response_time": 2378,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "104.37.135.145",
+    "port": 4145,
+    "type": "SOCKS4",
+    "country": "US",
+    "working": true,
+    "last_checked": 1747156060.4149237,
+    "response_time": 2881,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "174.77.111.198",
+    "port": 49547,
+    "type": "SOCKS4",
+    "country": "US",
+    "working": true,
+    "last_checked": 1747156060.7892013,
+    "response_time": 3551,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "103.37.82.134",
+    "port": 39873,
+    "type": "SOCKS4",
+    "country": "IN",
+    "working": false,
+    "last_checked": 1747156060.9873567,
+    "response_time": 5817,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "94.247.241.70",
+    "port": 51006,
+    "type": "SOCKS4",
+    "country": "RU",
+    "working": false,
+    "last_checked": 1747156060.9992874,
+    "response_time": 5883,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "45.77.105.113",
+    "port": 80,
+    "type": "HTTP",
+    "country": "US",
+    "working": true,
+    "last_checked": 1747156056.5284252,
+    "response_time": 508,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "147.182.147.92",
+    "port": 80,
+    "type": "HTTP",
+    "country": "CA",
+    "working": true,
+    "last_checked": 1747156058.0517964,
+    "response_time": 2353,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "8.39.228.33",
+    "port": 39593,
+    "type": "SOCKS4",
+    "country": "US",
+    "working": true,
+    "last_checked": 1747156061.2045643,
+    "response_time": 5207,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "39.104.27.89",
+    "port": 8004,
+    "type": "SOCKS4",
+    "country": "CN",
+    "working": true,
+    "last_checked": 1747156061.4604487,
+    "response_time": 5675,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "8.211.42.167",
+    "port": 1234,
+    "type": "SOCKS4",
+    "country": "DE",
+    "working": false,
+    "last_checked": 1747156057.8241258,
+    "response_time": 7849,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "8.210.17.35",
+    "port": 8080,
+    "type": "SOCKS4",
+    "country": "HK",
+    "working": false,
+    "last_checked": 1747156058.2441344,
+    "response_time": 8262,
+    "anonymity": "Unknown"
+  },
+  {
+    "ip": "95.66.244.250",
+    "port": 8080,
+    "type": "HTTP",
+    "country": "RU",
+    "working": true,
+    "last_checked": 1747156068.140556,
+    "response_time": 586,
+    "anonymity": "Unknown"
+  }
+]
